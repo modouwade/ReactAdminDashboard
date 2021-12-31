@@ -1,7 +1,20 @@
 import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
+import { useEffect, useState } from "react";
+import { userRequest } from "../../requestMethodes";
 import "./featuredInfo.css";
 
 function FeaturedInfo() {
+  const [income, setIncome] = useState([]);
+
+  useEffect(() => {
+    const getIncome = async () => {
+      try {
+        const res = await userRequest.get("orders/income");
+        setIncome(res.data);
+      } catch (err) {}
+    };
+    getIncome();
+  }, []);
   return (
     <div className="featured">
       <div className="featuredItem">

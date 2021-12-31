@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { login } from "../../redux/apiCalls";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { isFetching, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const handleClick = (e) => {
     e.preventDefault();
